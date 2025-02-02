@@ -1,24 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
-
-const initialState = {
-  user: {
-    name: null,
-    email: null,
-  },
-  token: null,
-  isLoggedIn: false,
-  isRefreshing: false,
+export const goitApi = axios.create({
+  baseURL: "https://connections-api.goit.global/",
+});
+export const setAuthHeader = (token) => {
+  goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
-console.log(initialState);
 
-export const fetchUser = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   "auth/register",
-  async (_, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.get("/users/current");
+      const { data } = await goitApi.post("/users/signup", credentials);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -26,29 +21,12 @@ export const fetchUser = createAsyncThunk(
   }
 );
 
-export const addUser = createAsyncThunk(
-  "auth/register",
-  async ({ name, email, password }, thunkAPI) => {
-    try {
-      const { data } = await axios.get("/users/signup", {
-        name,
-        email,
-        password,
-      });
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 export const loginUser = createAsyncThunk(
   "auth/login",
-  async ({ email, password }, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.get("/users/login", {
-        email,
-        password,
-      });
+      const { data } = await goitApi.post("/users/login", credentials);
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -60,7 +38,7 @@ export const logoutUser = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get("/users/logout");
+      const { data } = await goitApi.post("/users/logout");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -68,12 +46,11 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
-export const refteshUser = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   "auth/refresh",
-
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get("/users/current");
+      const { data } = await goitApi.get("/users/current");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

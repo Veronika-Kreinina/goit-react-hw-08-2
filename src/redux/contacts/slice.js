@@ -1,5 +1,9 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { addContact, deleteContact, fetchContacts } from "./contactsOps";
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+} from "../contacts/operations";
 
 export const initialState = {
   contacts: {
@@ -78,7 +82,7 @@ const sliceContacts = createSlice({
   },
 });
 
-export default sliceContacts.reducer;
+export const contactsReducer = sliceContacts.reducer;
 
 //  створи та експортуй мемоізований селектор selectFilteredContacts за допомогою функції createSelector.
 // Селектор повинен залежати від поточних масиву контактів і значення фільтра, та повертати відфільтрований масив контактів.

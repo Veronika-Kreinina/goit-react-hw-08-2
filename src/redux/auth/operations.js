@@ -50,7 +50,7 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const savedToken = thunkAPI.getState().auth.token;
-    if (savedToken === null) {
+    if (savedToken === "") {
       return thunkAPI.rejectWithValue("Token is not exist");
     }
     setAuthHeader(savedToken);

@@ -36,7 +36,13 @@ const slice = createSlice({
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
       });
   },
 });

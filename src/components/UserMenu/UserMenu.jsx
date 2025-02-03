@@ -16,6 +16,7 @@ const UserMenu = () => {
       >
         Logout
       </button>
+      <button className="btn btn-outline btn-accent">Accent</button>
     </div>
   );
 };

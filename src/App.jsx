@@ -1,8 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Layout from "./components/Layout";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "./redux/auth/operations";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
@@ -13,14 +15,12 @@ const RegistrationPage = lazy(() =>
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
     <>
-      ({" "}
-      <p>
-        refreshUser - оновлення користувача за токеном. Базовий тип екшену
-        auth/refresh. Використовується у компоненті App під час його монтування
-      </p>
-      )
       <div>
         <Suspense fallback={<p>Loading...</p>}>
           <Routes>

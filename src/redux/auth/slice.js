@@ -29,13 +29,14 @@ const slice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.isLoggedIn = true;
-        state.isRefreshing = true;
-        state.token = action.payload.token;
-      })
       .addCase(logoutUser.fulfilled, () => {
         return initialState;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.isLoggedIn = true;
+        state.isRefreshing = true;
       });
   },
 });

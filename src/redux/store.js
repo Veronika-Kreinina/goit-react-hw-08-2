@@ -15,10 +15,10 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-  key: "root",
+  key: "auth",
   version: 1,
   storage,
-  blacklist: ["filters"],
+  whitelist: ["token"],
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);

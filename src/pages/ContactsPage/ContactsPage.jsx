@@ -6,6 +6,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
+import background from "../../assets/marissa-grootes-YwPNWDNZHkg-unsplash.jpg";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,7 @@ const ContactsPage = () => {
     <div
       className=" min-h-screen   "
       style={{
-        backgroundImage:
-          "url('/src/assets/marissa-grootes-YwPNWDNZHkg-unsplash.jpg')",
+        backgroundImage: `url(${background})`,
         backgroundColor: "lightgray",
         backgroundSize: "cover",
         backgroundPosition: "center",

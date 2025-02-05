@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import background from "../../assets/dose-media-bU6JyhSI6zo-unsplash.jpg";
 
 const HomePage = () => {
   return (
@@ -6,7 +7,7 @@ const HomePage = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: `url(/src/assets/dose-media-bU6JyhSI6zo-unsplash.jpg)`,
+          backgroundImage: `url(${background})`,
         }}
       >
         <div className="hero-overlay"></div>

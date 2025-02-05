@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
 
 body {
   font-family: sans-serif;
@@ -31,4 +33,28 @@ ol {
 img {
   display: block;
   max-width: 100%;
+}
+
+header {
+  padding: 16px;
+  background-color: rgb(104, 103, 111);
+  color: white;
+
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.active {
+  color: rgb(76, 206, 193);
 }

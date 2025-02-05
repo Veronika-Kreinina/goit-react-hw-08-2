@@ -9,10 +9,12 @@ const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <div className="flex flex-wrap gap-2">
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </div>
+    <header>
+      <div className="container">
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </div>
+    </header>
   );
 };
 

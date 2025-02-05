@@ -7,6 +7,7 @@ const Contact = ({ contact }) => {
   const handleDelete = () => dispatch(deleteContact(contact.id));
   return (
     <>
+     
       <div className={s.container}>
         <div>
           <p className={s.text}>{contact.name}</p>

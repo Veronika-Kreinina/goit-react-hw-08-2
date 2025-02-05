@@ -5,10 +5,19 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 
 const ContactsPage = () => {
   return (
-    <div>
+    <div
+      className=" min-h-screen   "
+      style={{
+        backgroundImage: `url(/src/assets/marissa-grootes-YwPNWDNZHkg-unsplash.jpg`,
+        backgroundColor: "lightgray",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundBlendMode: "lighten",
+      }}
+    >
       <ContactForm />
-      <ContactList />
       <SearchBox />
+      <ContactList />
       {/* <Contact /> */}
     </div>
   );

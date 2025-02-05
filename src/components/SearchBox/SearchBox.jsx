@@ -11,17 +11,17 @@ const SearchBox = () => {
     dispatch(changeFilter(e.target.value.trim().toLowerCase()));
 
   return (
-    <div className="s.wrapper">
-      <label htmlFor={contactId} className={s.text}>
-        Find contacts by name
+    <div>
+      <label htmlFor={contactId} className={s.label}>
+        <input
+          className={s.input}
+          type="text"
+          value={value}
+          id={contactId}
+          onChange={handleSearch}
+          placeholder="Find contacts by name "
+        />{" "}
       </label>
-      <input
-        className={s.input}
-        type="text"
-        value={value}
-        id={contactId}
-        onChange={handleSearch}
-      />
     </div>
   );
 };

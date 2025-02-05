@@ -7,16 +7,11 @@ const UserMenu = () => {
   const handleClick = () => dispatch(logoutUser());
   const user = useSelector(selectUser);
   return (
-    <div>
+    <div className="container">
       <p>Welcome, {user.name}!</p>
-      <button
-        type="submit"
-        className="px-4 py-2 shadow-2xl rounded-md bg-teal-400 text-white cursor-pointer flex gap-2 hover:bg-teal-500"
-        onClick={handleClick}
-      >
+      <button type="submit" className="btn btn-outline " onClick={handleClick}>
         Logout
       </button>
-      <button className="btn btn-outline btn-accent">Accent</button>
     </div>
   );
 };

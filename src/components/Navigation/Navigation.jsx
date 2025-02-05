@@ -6,7 +6,7 @@ const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div>
-      <nav className="flex flex-wrap gap-2">
+      <nav className="container">
         <NavLink to="/">Home</NavLink>
         {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
       </nav>

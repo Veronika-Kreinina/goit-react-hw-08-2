@@ -17,7 +17,8 @@ const ContactsPage = () => {
     <div
       className=" min-h-screen   "
       style={{
-        backgroundImage: `url(/src/assets/marissa-grootes-YwPNWDNZHkg-unsplash.jpg)`,
+        backgroundImage:
+          "url('/src/assets/marissa-grootes-YwPNWDNZHkg-unsplash.jpg')",
         backgroundColor: "lightgray",
         backgroundSize: "cover",
         backgroundPosition: "center",

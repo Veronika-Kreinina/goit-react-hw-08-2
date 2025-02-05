@@ -12,7 +12,6 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(registerUser(values)).unwrap().then(navigate("/"));
     options.resetForm();
   };
@@ -25,17 +24,19 @@ const RegistrationForm = () => {
             <span>Name:</span>
             <Field
               name="name"
+              type="text"
               className="p-2 border-1 border-black roundet-mb shadow-md"
-            ></Field>
+            />
           </label>
 
           <label className="flex flex-col gap-2">
             <span>Email:</span>
             <Field
               name="email"
+              type="email"
               b
               className="p-2 border-1 border-black roundet-mb shadow-md"
-            ></Field>
+            />
           </label>
 
           <label className="flex flex-col gap-2">
@@ -44,7 +45,7 @@ const RegistrationForm = () => {
               name="password"
               type="password"
               className="p-2 border-1 border-black roundet-mb shadow-md"
-            ></Field>
+            />
           </label>
 
           <button

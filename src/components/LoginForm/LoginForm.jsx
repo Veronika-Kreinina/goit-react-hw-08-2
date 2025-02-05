@@ -10,7 +10,6 @@ const LoginForm = () => {
   };
   const dispatch = useDispatch();
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(loginUser(values));
     options.resetForm();
   };
@@ -23,8 +22,9 @@ const LoginForm = () => {
             <span>Email:</span>
             <Field
               name="email"
+              type="email"
               className="p-2 border-1 border-black roundet-mb shadow-md"
-            ></Field>
+            />
           </label>
 
           <label className="flex flex-col gap-2">
@@ -33,7 +33,7 @@ const LoginForm = () => {
               name="password"
               type="password"
               className="p-2 border-1 border-black roundet-mb shadow-md"
-            ></Field>
+            />
           </label>
 
           <button

@@ -38,6 +38,7 @@ const sliceContacts = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.items.push(action.payload);
       })
+
       .addMatcher(
         isAnyOf(
           fetchContacts.pending,
@@ -65,26 +66,7 @@ const sliceContacts = createSlice({
           state.contacts.error = null;
         }
       );
-    // state.contacts.error = null;
-    // .addMatcher(
-    //     isAnyOf(
-    //       fetchContacts.fulfilled,
-    //       deleteContact.fulfilled,
-    //       addContact.fulfilled
-    //     ),
-    //     (state) => {
-    //       state.contacts.loading = false;
-    //     },
-    //     (state) => {
-    //       state.contacts.error = null;
-    //     }
-    //   );
   },
 });
 
 export const contactsReducer = sliceContacts.reducer;
-
-//  створи та експортуй мемоізований селектор selectFilteredContacts за допомогою функції createSelector.
-// Селектор повинен залежати від поточних масиву контактів і значення фільтра, та повертати відфільтрований масив контактів.
-// Селектор selectFilteredContacts імпортується у компонент списка контактів ContactList.jsx та використовується у useSelector.
-``;

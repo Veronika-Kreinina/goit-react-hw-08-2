@@ -29,16 +29,10 @@ const slice = createSlice({
         state.token = action.payload.token;
         state.isRefreshing = false;
       })
-      .addCase(logoutUser.fulfilled, (state) => {
-        state.user.name = null;
-        state.user.email = null;
-        state.token = null;
-        state.isLoggedIn = false;
-        state.items = [];
+
+      .addCase(logoutUser.fulfilled, () => {
+        return initialState;
       })
-      // .addCase(logoutUser.fulfilled, () => {
-      //   return initialState;
-      // })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;

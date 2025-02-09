@@ -4,6 +4,7 @@ import {
   deleteContact,
   fetchContacts,
 } from "../contacts/operations";
+import { logoutUser } from "../auth/operations";
 
 export const initialState = {
   contacts: {
@@ -37,6 +38,9 @@ const sliceContacts = createSlice({
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.items.push(action.payload);
+      })
+      .addCase(logoutUser.fulfilled, () => {
+        return initialState;
       })
 
       .addMatcher(
